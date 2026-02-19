@@ -1,0 +1,12 @@
+dependencies:
+- name: user-svc
+  repository: file://../user-svc
+  version: 0.1.0
+- name: product-svc
+  repository: file://../product-svc
+  version: 0.1.0
+- name: order-svc
+  repository: file://../order-svc
+  version: 0.1.0
+digest: sha256:e8b21170a734aeedc7ed382254624209f65cdcd710d7be91cef7ddf7d6cc9256
+generated: "2026-02-19T10:21:26.312096132+05:30"

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Platform</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="top-ribbon"></div>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+    <div class="bg-shape bg-shape-c"></div>
+
+    <main class="app">
+      <header class="hero">
+        <p class="eyebrow">Microservices Dashboard</p>
+        <h1>Ecommerce Platform</h1>
+        <p class="subtitle">
+          Live view for Users, Products, and Orders through API Gateway.
+        </p>
+        <button id="refreshBtn" class="refresh-btn">Refresh Data</button>
+      </header>
+
+      <section class="quick-strip">
+        <div class="quick-card">
+          <p class="quick-label">Gateway</p>
+          <p class="quick-value">/users /products /orders</p>
+        </div>
+        <div class="quick-card">
+          <p class="quick-label">Mode</p>
+          <p class="quick-value">Live Service Data</p>
+        </div>
+        <div class="quick-card">
+          <p class="quick-label">Frontend</p>
+          <p class="quick-value">Static + API Proxy</p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="grid">
+        <article class="panel" id="usersPanel">
+          <div class="panel-head">
+            <h2>Users</h2>
+            <span class="chip" id="usersStatus">Loading...</span>
+          </div>
+          <div id="usersData" class="data-block data-cards"></div>
+        </article>
+
+        <article class="panel" id="productsPanel">
+          <div class="panel-head">
+            <h2>Products</h2>
+            <span class="chip" id="productsStatus">Loading...</span>
+          </div>
+          <div id="productsData" class="data-block data-cards"></div>
+        </article>
+
+        <article class="panel panel-wide" id="ordersPanel">
+          <div class="panel-head">
+            <h2>Orders</h2>
+            <span class="chip" id="ordersStatus">Loading...</span>
+          </div>
+          <div id="ordersData" class="data-block data-cards"></div>
+        </article>
+      </section>
+
+      <footer class="app-footer">
+        <span class="dot"></span>
+        <p>Built for your existing services without API contract changes.</p>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
