@@ -8,12 +8,13 @@ const SWATCHES = [
   ["#22c55e", "#06b6d4"],
   ["#f59e0b", "#ef4444"],
   ["#0ea5e9", "#14b8a6"],
-  ["#8b5cf6", "#ec4899"],
+  ["#2563eb", "#f97316"],
   ["#10b981", "#3b82f6"],
 ];
 
 function setStatus(key, text, cls) {
   const el = document.getElementById(`${key}Status`);
+  if (!el) return;
   el.textContent = text;
   el.className = `chip ${cls || ""}`.trim();
 }
@@ -114,11 +115,13 @@ function renderHtml(key, data) {
 
 function setData(key, data) {
   const el = document.getElementById(`${key}Data`);
+  if (!el) return;
   el.innerHTML = renderHtml(key, data);
 }
 
 function setError(key, err, endpoint) {
   const el = document.getElementById(`${key}Data`);
+  if (!el) return;
   el.innerHTML = `
     <div class="error-box">
       <p class="error-title">Could not load section</p>
@@ -150,5 +153,31 @@ async function loadAll() {
   );
 }
 
+function normalizePageFromHash() {
+  const value = window.location.hash.replace("#", "").trim().toLowerCase();
+  return value || "home";
+}
+
+function showPage(page) {
+  const validPages = new Set(["home", "shop", "collections", "live", "contact"]);
+  const next = validPages.has(page) ? page : "home";
+
+  document.querySelectorAll(".page").forEach((el) => {
+    el.classList.toggle("active", el.dataset.page === next);
+  });
+
+  document.querySelectorAll(".site-nav a").forEach((el) => {
+    el.classList.toggle("active", el.dataset.page === next);
+  });
+
+  if (next === "live") {
+    loadAll();
+  }
+}
+
+window.addEventListener("hashchange", () => showPage(normalizePageFromHash()));
+
 document.getElementById("refreshBtn").addEventListener("click", loadAll);
+
+showPage(normalizePageFromHash());
 loadAll();

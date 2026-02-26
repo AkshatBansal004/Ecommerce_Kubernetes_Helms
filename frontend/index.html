@@ -4,72 +4,192 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ecommerce Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="top-ribbon"></div>
-    <div class="bg-shape bg-shape-a"></div>
-    <div class="bg-shape bg-shape-b"></div>
-    <div class="bg-shape bg-shape-c"></div>
+    <div class="shell">
+      <aside class="sidebar">
+        <a href="#home" class="logo">ARC STORE</a>
+        <nav class="nav" id="siteNav">
+          <a href="#home" data-page="home">Overview</a>
+          <a href="#shop" data-page="shop">Products</a>
+          <a href="#collections" data-page="collections">Collections</a>
+          <a href="#live" data-page="live">Live API</a>
+          <a href="#contact" data-page="contact">Contact</a>
+        </nav>
+        <button id="refreshBtn" class="refresh-btn">Refresh API Data</button>
+      </aside>
 
-    <main class="app">
-      <header class="hero">
-        <p class="eyebrow">Microservices Dashboard</p>
-        <h1>Ecommerce Platform</h1>
-        <p class="subtitle">
-          Live view for Users, Products, and Orders through API Gateway.
-        </p>
-        <button id="refreshBtn" class="refresh-btn">Refresh Data</button>
-      </header>
+      <main class="content" id="appRoot">
+        <section class="page active" data-page="home">
+          <header class="section-title">
+            <p class="kicker">Compact storefront</p>
+            <h1>Everything in one focused view</h1>
+          </header>
 
-      <section class="quick-strip">
-        <div class="quick-card">
-          <p class="quick-label">Gateway</p>
-          <p class="quick-value">/users /products /orders</p>
-        </div>
-        <div class="quick-card">
-          <p class="quick-label">Mode</p>
-          <p class="quick-value">Live Service Data</p>
-        </div>
-        <div class="quick-card">
-          <p class="quick-label">Frontend</p>
-          <p class="quick-value">Static + API Proxy</p>
-        </div>
-      </section>
+          <section class="stat-grid">
+            <article class="stat-card">
+              <p>Shipping</p>
+              <h3>2-Day in 70+ cities</h3>
+            </article>
+            <article class="stat-card">
+              <p>Returns</p>
+              <h3>14-day easy exchange</h3>
+            </article>
+            <article class="stat-card">
+              <p>Support</p>
+              <h3>Human help in under 1h</h3>
+            </article>
+          </section>
 
-      <div class="section-divider"></div>
+          <section class="mini-grid">
+            <article class="mini-card">
+              <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=900&q=80" alt="Headphones" />
+              <div>
+                <h3>Audio</h3>
+                <p>Noise-free listening essentials.</p>
+              </div>
+            </article>
+            <article class="mini-card">
+              <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80" alt="Smart watch" />
+              <div>
+                <h3>Wearables</h3>
+                <p>Health, alerts, and style.</p>
+              </div>
+            </article>
+            <article class="mini-card">
+              <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=80" alt="Desk setup" />
+              <div>
+                <h3>Desk setup</h3>
+                <p>Clean tools for daily work.</p>
+              </div>
+            </article>
+          </section>
+        </section>
 
-      <section class="grid">
-        <article class="panel" id="usersPanel">
-          <div class="panel-head">
-            <h2>Users</h2>
-            <span class="chip" id="usersStatus">Loading...</span>
-          </div>
-          <div id="usersData" class="data-block data-cards"></div>
-        </article>
+        <section class="page" data-page="shop">
+          <header class="section-title">
+            <p class="kicker">Products</p>
+            <h2>Best picks this week</h2>
+          </header>
+          <section class="product-grid">
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80" alt="Headphones" />
+              <h3>Orbit ANC</h3>
+              <p>Wireless over-ear</p>
+              <span>$149</span>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80" alt="Watch" />
+              <h3>Pulse Lite</h3>
+              <p>Smart watch</p>
+              <span>$179</span>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1000&q=80" alt="Speaker" />
+              <h3>RoomBeat Mini</h3>
+              <p>Portable speaker</p>
+              <span>$89</span>
+            </article>
+            <article class="product-card">
+              <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1000&q=80" alt="Shoes" />
+              <h3>Nova Run</h3>
+              <p>Training sneakers</p>
+              <span>$129</span>
+            </article>
+          </section>
+        </section>
 
-        <article class="panel" id="productsPanel">
-          <div class="panel-head">
-            <h2>Products</h2>
-            <span class="chip" id="productsStatus">Loading...</span>
-          </div>
-          <div id="productsData" class="data-block data-cards"></div>
-        </article>
+        <section class="page" data-page="collections">
+          <header class="section-title">
+            <p class="kicker">Collections</p>
+            <h2>Shoppable sets</h2>
+          </header>
+          <section class="collection-list">
+            <article class="collection-card">
+              <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1200&q=80" alt="Workstation" />
+              <div>
+                <h3>Workstation</h3>
+                <p>Monitors, keyboards, and compact accessories.</p>
+              </div>
+            </article>
+            <article class="collection-card">
+              <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=1200&q=80" alt="Travel" />
+              <div>
+                <h3>Travel light</h3>
+                <p>Portable gear for daily commuting and flights.</p>
+              </div>
+            </article>
+          </section>
+        </section>
 
-        <article class="panel panel-wide" id="ordersPanel">
-          <div class="panel-head">
-            <h2>Orders</h2>
-            <span class="chip" id="ordersStatus">Loading...</span>
-          </div>
-          <div id="ordersData" class="data-block data-cards"></div>
-        </article>
-      </section>
+        <section class="page" data-page="live">
+          <header class="section-title">
+            <p class="kicker">Microservices</p>
+            <h2>Live API dashboard</h2>
+          </header>
 
-      <footer class="app-footer">
-        <span class="dot"></span>
-        <p>Built for your existing services without API contract changes.</p>
-      </footer>
-    </main>
+          <section class="quick-strip">
+            <div class="quick-card">
+              <p class="quick-label">Gateway</p>
+              <p class="quick-value">/users /products /orders</p>
+            </div>
+            <div class="quick-card">
+              <p class="quick-label">Mode</p>
+              <p class="quick-value">Live service data</p>
+            </div>
+            <div class="quick-card">
+              <p class="quick-label">Frontend</p>
+              <p class="quick-value">Static + API proxy</p>
+            </div>
+          </section>
+
+          <section class="grid">
+            <article class="panel" id="usersPanel">
+              <div class="panel-head">
+                <h3>Users</h3>
+                <span class="chip" id="usersStatus">Loading...</span>
+              </div>
+              <div id="usersData" class="data-block data-cards"></div>
+            </article>
+
+            <article class="panel" id="productsPanel">
+              <div class="panel-head">
+                <h3>Products</h3>
+                <span class="chip" id="productsStatus">Loading...</span>
+              </div>
+              <div id="productsData" class="data-block data-cards"></div>
+            </article>
+
+            <article class="panel panel-wide" id="ordersPanel">
+              <div class="panel-head">
+                <h3>Orders</h3>
+                <span class="chip" id="ordersStatus">Loading...</span>
+              </div>
+              <div id="ordersData" class="data-block data-cards"></div>
+            </article>
+          </section>
+        </section>
+
+        <section class="page" data-page="contact">
+          <header class="section-title">
+            <p class="kicker">Contact</p>
+            <h2>Fast support channels</h2>
+          </header>
+          <section class="contact-card">
+            <p>support@arcstore.shop</p>
+            <p>+1 (800) 555-0199</p>
+            <p>Mon-Fri, 9:00 AM - 6:00 PM</p>
+          </section>
+        </section>
+      </main>
+    </div>
 
     <script src="./app.js"></script>
   </body>

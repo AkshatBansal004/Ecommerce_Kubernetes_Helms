@@ -1,5 +1,6 @@
 services:
   user-service:
+    image: akshat004b/user-service:v4
     build:
       context: ./services/user-service
     container_name: user-service
@@ -7,6 +8,7 @@ services:
       - "8000"
 
   product-service:
+    image: akshat004b/product-service:v5
     build:
       context: ./services/product-service
     container_name: product-service
@@ -14,6 +16,7 @@ services:
       - "8000"
 
   order-service:
+    image: akshat004b/order-service:v5
     build:
       context: ./services/order-service
     container_name: order-service
@@ -27,6 +30,7 @@ services:
       - "8000"
 
   api-gateway:
+    image: akshat004b/api-gateway:v3
     build:
       context: .
       dockerfile: api-gateway/Dockerfile
@@ -35,5 +39,8 @@ services:
       - user-service
       - product-service
       - order-service
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./api-gateway/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - "8080:80"

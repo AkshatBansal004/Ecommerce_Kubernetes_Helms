@@ -1,4 +1,4 @@
-fastapi
-uvicorn
-requests
-prometheus-fastapi-instrumentator
+fastapi==0.115.8
+uvicorn==0.34.0
+requests==2.32.3
+prometheus-fastapi-instrumentator==7.0.2
